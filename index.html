@@ -1,116 +1,434 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>李阜聪 | Academic Profile</title>
-
-    <meta name="description" content="李阜聪，成都医学院2024级健康服务与管理本科生，具备国际交流与科研经历。">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>李阜聪 · 学术简历</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f6fa;
+        /* ---------- 全局重置 & 基础 ---------- */
+        * {
             margin: 0;
-            color: #222;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f4f9;
+            color: #1e1e2f;
+            line-height: 1.6;
             padding: 40px 20px;
         }
 
-        .card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.04);
+            padding: 40px 48px;
+            transition: all 0.2s;
         }
 
-        h1 { margin-bottom: 5px; }
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 18px;
+            }
+        }
 
-        .subtitle {
-            color: #666;
-            margin-bottom: 15px;
+        /* ---------- 头部 ---------- */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #edeff4;
+            margin-bottom: 28px;
+        }
+
+        .header-left h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0b0b1a;
+            margin-bottom: 4px;
+        }
+
+        .header-left .title {
+            font-size: 16px;
+            font-weight: 450;
+            color: #4a4a5e;
+            background: #f0f2f8;
+            display: inline-block;
+            padding: 2px 14px;
+            border-radius: 30px;
+            margin-top: 2px;
+        }
+
+        .header-left .sub {
+            margin-top: 12px;
+            color: #3d3d54;
+            max-width: 500px;
+            font-size: 15px;
+        }
+
+        .header-right {
+            text-align: right;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .header-right .badge {
+            display: inline-block;
+            background: #eef3ff;
+            color: #1f4fcf;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        .header-right .contact {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #4f4f6b;
+        }
+
+        .header-right .contact span {
+            display: inline-block;
+            margin-left: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header-right {
+                text-align: left;
+                margin-top: 12px;
+            }
+            .header-right .contact span {
+                margin-left: 0;
+                margin-right: 16px;
+            }
+        }
+
+        /* ---------- 标签云 ---------- */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 8px;
+            margin: 16px 0 8px;
         }
 
         .tag {
-            display: inline-block;
-            background: #e8f0ff;
-            color: #1a5cff;
-            padding: 5px 10px;
-            border-radius: 20px;
+            background: #f1f4fd;
+            color: #1f3d8f;
             font-size: 12px;
-            margin: 3px;
+            font-weight: 500;
+            padding: 4px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.2px;
+            transition: background 0.15s;
         }
 
-        ul {
-            line-height: 1.8;
+        .tag:hover {
+            background: #e0e7fc;
+        }
+
+        /* ---------- 通用 section ---------- */
+        .section {
+            margin-top: 32px;
+        }
+
+        .section:first-of-type {
+            margin-top: 0;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 650;
+            letter-spacing: -0.3px;
+            color: #0b0b1a;
+            margin-bottom: 14px;
+            border-bottom: 2px solid #f0f2f8;
+            padding-bottom: 10px;
+        }
+
+        /* ---------- 列表样式 ---------- */
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-list li {
+            position: relative;
+            padding: 8px 0 8px 28px;
+            font-size: 15px;
+            color: #26263b;
+            border-bottom: 1px solid #f5f6fa;
+        }
+
+        .item-list li:last-child {
+            border-bottom: none;
+        }
+
+        .item-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 4px;
+            color: #2f6fff;
+            font-weight: 600;
+        }
+
+        /* 带时间线的条目（教育、经历等） */
+        .entry {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 10px 0 10px 0;
+            border-bottom: 1px solid #f0f2f8;
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+        }
+
+        .entry .main {
+            font-weight: 500;
+            color: #16162b;
+            font-size: 15px;
+        }
+
+        .entry .main strong {
+            font-weight: 650;
+            color: #0b0b1a;
+        }
+
+        .entry .meta {
+            font-size: 14px;
+            color: #5e5e7a;
+            background: #f4f6fc;
+            padding: 0 12px;
+            border-radius: 30px;
+            font-weight: 450;
+            white-space: nowrap;
+        }
+
+        .entry .desc {
+            width: 100%;
+            margin-top: 4px;
+            font-size: 14px;
+            color: #44445c;
+            padding-left: 4px;
+        }
+
+        @media (max-width: 500px) {
+            .entry {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .entry .meta {
+                margin-top: 4px;
+                font-size: 12px;
+            }
+        }
+
+        /* ---------- 兴趣网格 ---------- */
+        .interest-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            margin-top: 4px;
+        }
+
+        .interest-grid span {
+            background: #f4f7ff;
+            color: #1f3d7a;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 470;
+            border: 1px solid #e6ecfa;
+            transition: all 0.15s;
+        }
+
+        .interest-grid span:hover {
+            background: #e3ebfe;
+            border-color: #b2c8fa;
+        }
+
+        /* ---------- footer ---------- */
+        .footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #edeff4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #7a7a94;
+        }
+
+        .footer .copy {
+            letter-spacing: 0.2px;
+        }
+
+        .footer .meta-info {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer .meta-info span {
+            background: #f4f6fc;
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            color: #4f4f6b;
+        }
+
+        @media (max-width: 500px) {
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        /* ---------- 打印优化 ---------- */
+        @media print {
+            body {
+                background: white;
+                padding: 0.2in;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                border-radius: 0;
+            }
+            .tag:hover {
+                background: #f1f4fd;
+            }
+            .interest-grid span:hover {
+                background: #f4f7ff;
+                border-color: #e6ecfa;
+            }
+        }
+
+        /* ---------- 辅助 ---------- */
+        .mt-1 {
+            margin-top: 4px;
+        }
+        .text-muted {
+            color: #5f5f7a;
         }
     </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="card">
-        <h1>李阜聪</h1>
+        <!-- ====== 头部 ====== -->
+        <header class="header">
+            <div class="header-left">
+                <h1>李阜聪</h1>
+                <div class="title">健康服务与管理 · 本科在读</div>
+                <div class="sub">
+                    成都医学院 2024 级 · 研究方向聚焦健康管理、医疗AI与数据建模
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Health Management</span>
+                    <span class="tag">AI in Healthcare</span>
+                    <span class="tag">Data Science</span>
+                    <span class="tag">International Exchange</span>
+                    <span class="tag">Academic Research</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="badge">开放合作</div>
+                <div class="contact">
+                    <span>fucong.li@example.edu</span>
+                    <span>成都 · 中国</span>
+                </div>
+            </div>
+        </header>
 
-        <div class="subtitle">
-            :contentReference[oaicite:0]{index=0} · 2024级健康服务与管理本科生
-        </div>
+        <!-- ====== 教育背景 ====== -->
+        <section class="section">
+            <div class="section-title">教育背景</div>
+            <div class="entry">
+                <div class="main"><strong>成都医学院</strong> · 健康服务与管理（本科）</div>
+                <div class="meta">2024 – 至今</div>
+                <div class="desc">主修课程：健康管理学、医学统计学、卫生信息系统、人工智能导论</div>
+            </div>
+        </section>
 
-        <p>
-            研究方向聚焦于健康服务与管理、人工智能在医疗健康中的应用以及数据分析建模。
-            具备国际学术交流与科研实践经历。
-        </p>
+        <!-- ====== 科研与创新 ====== -->
+        <section class="section">
+            <div class="section-title">科研与创新经历</div>
+            <ul class="item-list">
+                <li>“星程闪药”本科生创新创业工作室 — 核心成员</li>
+                <li>参与医疗健康数据智能分析课题，探索AI辅助健康管理决策</li>
+            </ul>
+        </section>
 
-        <div>
-            <span class="tag">Health Management</span>
-            <span class="tag">AI in Healthcare</span>
-            <span class="tag">Data Analysis</span>
-            <span class="tag">International Exchange</span>
-        </div>
+        <!-- ====== 国际交流 ====== -->
+        <section class="section">
+            <div class="section-title">国际交流经历</div>
+            <ul class="item-list">
+                <li>2024 冬 · 新加坡国立大学 — 交换学习（健康科技方向）</li>
+                <li>2025 夏 · 日本早稻田大学 — 学术交流访问</li>
+                <li>2025 · IJCAI 国际人工智能联合会议 — 学术交流与研讨</li>
+            </ul>
+        </section>
+
+        <!-- ====== 荣誉奖项 ====== -->
+        <section class="section">
+            <div class="section-title">荣誉奖项</div>
+            <ul class="item-list">
+                <li>国家励志奖学金（2025）</li>
+                <li>成都医学院“优秀学生”称号（2025）</li>
+            </ul>
+        </section>
+
+        <!-- ====== 研究兴趣 ====== -->
+        <section class="section">
+            <div class="section-title">研究兴趣</div>
+            <div class="interest-grid">
+                <span>数字健康与医疗系统</span>
+                <span>人工智能在医疗中的应用</span>
+                <span>健康数据分析与建模</span>
+                <span>自动化与智能决策</span>
+                <span>卫生信息管理</span>
+            </div>
+        </section>
+
+        <!-- ====== 未来方向 ====== -->
+        <section class="section">
+            <div class="section-title">未来方向</div>
+            <ul class="item-list">
+                <li>医疗AI建模与应用 — 聚焦可解释性AI与临床决策支持</li>
+                <li>健康管理数据系统设计 — 面向基层医疗的智能平台</li>
+                <li>科研项目与论文发表 — 积极投身高水平学术产出</li>
+            </ul>
+        </section>
+
+        <!-- ====== 页脚 ====== -->
+        <footer class="footer">
+            <div class="copy">© 2026 李阜聪 · Academic CV</div>
+            <div class="meta-info">
+                <span>持续更新</span>
+                <span>构建于 2026</span>
+            </div>
+        </footer>
+
     </div>
-
-    <div class="card">
-        <h2>📌 科研与创新经历</h2>
-        <ul>
-            <li>加入“星程闪药”本科生创新创业工作室</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>🌍 国际交流经历</h2>
-        <ul>
-            <li>2024冬：新加坡国立大学交换学习</li>
-            <li>2025夏：日本早稻田大学交流访问</li>
-            <li>2025：IJCAI 2025 国际人工智能联合会议学术交流</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>🏆 荣誉奖项</h2>
-        <ul>
-            <li>国家励志奖学金（2025）</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>🎯 研究方向</h2>
-        <ul>
-            <li>健康管理与医疗系统</li>
-            <li>人工智能医疗应用</li>
-            <li>数据分析与建模</li>
-            <li>自动化与量化系统</li>
-        </ul>
-    </div>
-
-</div>
 
 </body>
 </html>
